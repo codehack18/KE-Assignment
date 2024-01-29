@@ -1,0 +1,46 @@
+.add {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #d7d4d4;
+    align-items: center;
+    justify-items: center;
+}
+
+.modal {
+    background: rgba(0, 0, 0, 0.562);
+}
+
+.modal-title {
+    font-family: system-ui;
+}
+
+.container-fulid {
+    margin: 10px;
+    margin-left: 205px;
+}
+
+.table {
+    padding: 5px;
+    /* background: dodgerblue; */
+}
+
+.container button {
+    float: left;
+}
+
+.delete {
+    color: red;
+    size: 10px;
+    margin-left: 20px;
+}
+
+p {
+    margin: 15%;
+    font-size: xx-large;
+    color: #fc0000;
+}

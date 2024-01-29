@@ -1,0 +1,185 @@
+<app-side-nav></app-side-nav>
+<div class="container-fulid">
+<div class="add">
+    <button class="btn btn-warning" (click)="listAddModal()">
+        <a>Add
+            <i class="fas fa-plus"></i>
+        </a>
+    </button>
+</div>
+
+    <!-- <button class="btn btn-info" (click)="onClick()">SeeTable</button> -->
+    
+    <!-- <button class="delete btn btn-danger">DeleteSelected</button> -->
+    <table datatable [dtOptions]="dtOptions" *ngIf="tableData.length > 0; else noData"
+        class="table table-secondary table-striped table-bordered border-dark table-sm row-border">
+        <thead>
+            <tr>
+                <th style="display: none;"></th>
+                <!-- <th>
+                    <input class="form-check-input" type="checkbox" [(ngModel)]="parentSelector" [value]="-1"
+                        (change)="onChangeData($event)">
+                </th> -->
+                <th>ID</th>
+                <th>Name</th>
+                <th>UserName</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Website</th>
+                <th>Address</th>
+                <th>Company</th>
+                <th class="text-center">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let table of tableData; let i = index">
+                <td style="display: none;"></td>
+                <!-- <td scope="check">
+                    <input class="form-check-input" type="checkbox" [value]="table.id" [checked]="table.select"
+                        (change)="onChangeData($event)">
+                </td> -->
+                <td>{{i+1}}</td>
+                <td>{{table.name}}</td>
+                <td>{{table.username}}</td>
+                <td>{{table.email}}</td>
+                <td>{{table.phone}}</td>
+                <td>{{table.website}}</td>
+                <td>{{table.address}}</td>
+                <td>{{table.company}}</td>
+                <td class="text-center">
+                    <a class="edit" (click)="editData(table,i)">
+                        <i class="fa fa-pen-to-square"></i></a>
+                    <a class="delete" (click)="deleteItem(table.id)">
+                        <i class="fa fa-trash text-danger"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <ng-template #noData>
+        <p class="text-center">No TableData available</p>
+    </ng-template>
+    <!-- add list table  -->
+    <div class="modal" id="addModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h2 class="modal-title">ADD-<b style="color: orange">List</b></h2>
+                    <!-- <button type="button" class="btn-close" (click)="closeModal()"></button> -->
+                </div>
+                <form class="row g-3" [formGroup]="addListForm">
+                    <!-- <div class="form-group col-sm-4 mt-4">
+                        <label class="form-group">Id</label>
+                        <input type="number" class="form-control" formControlName="id">
+                    </div> -->
+
+                    <div class="form-group col-md-6 mt-4">
+                        <label class="form-group">Name</label>
+                        <input type="text" class="form-control" formControlName="name">
+                    </div>
+
+                    <div class="form-group col-md-6 mt-4">
+                        <label class="form-group">User Name</label>
+                        <input type="text" class="form-control" formControlName="username">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label class="form-group">Email</label>
+                        <input type="email" class="form-control" formControlName="email">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label class="form-group">Phone</label>
+                        <input type="number" class="form-control" formControlName="phone">
+
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-group">Website</label>
+                        <input type="text" class="form-control" formControlName="website">
+
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label class="form-group">Address City</label>
+                        <input type="text" class="form-control" formControlName="address">
+                    </div>
+                    <div class="form-group col-md-8 mb-3">
+                        <label class="form-group">Company</label>
+                        <input type="text" class="form-control" formControlName="company">
+
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" (click)="addList()">Add</button>
+                        <!-- <button type="submit" class="btn btn-success" (click)="addData()">Add</button> -->
+                        <button type="button" class="btn btn-warning" (click)="closeModal()">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- edit table  -->
+
+    <div class="modal" id="editModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h2 class="modal-title">EDIT-<b style="color: #ffba0e">DATA</b></h2>
+                    <!-- <button type="button" class="btn-close" (click)="closeModal()"></button> -->
+                </div>
+                <form class="row g-3" [formGroup]="addListForm">
+
+                    <!-- <div class="form-group col-sm-4 mt-4">
+                        <label class="form-group">Id</label>
+                        <input type="number" class="form-control" formControlName="id">
+                    </div> -->
+
+                    <div class="form-group col-md-6 mt-4">
+                        <label class="form-group">Name</label>
+                        <input type="text" class="form-control" formControlName="name">
+                    </div>
+
+                    <div class="form-group col-md-6 mt-4">
+                        <label class="form-group">User Name</label>
+                        <input type="text" class="form-control" formControlName="username">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label class="form-group">Email</label>
+                        <input type="email" class="form-control" formControlName="email">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label class="form-group">Phone</label>
+                        <input type="text" class="form-control" formControlName="phone">
+
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-group">Website</label>
+                        <input type="text" class="form-control" formControlName="website">
+
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label class="form-group">Address City</label>
+                        <input type="text" class="form-control" formControlName="address">
+                    </div>
+                    <div class="form-group col-md-8 mb-3">
+                        <label class="form-group">Company</label>
+                        <input type="text" class="form-control" formControlName="company">
+
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" (click)="updateList()">Update</button>
+                        <button type="button" class="btn btn-warning" (click)="editClose()">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

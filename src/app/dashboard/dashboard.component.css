@@ -1,0 +1,61 @@
+.container {
+    background-color: #fffcfc;
+    width: 100%;
+    position: relative;
+    margin-left: 208px;
+    margin-top: 75px;
+}
+
+/* .container:hover{
+    width: 600px;
+    transition: 0.5s;
+} */
+
+.second {
+    height: 100%;
+    width: 500px;
+    margin: 8px;
+    max-width: 600px;
+    min-width: 300px;
+    background-color: #fffcfc;
+    box-shadow: 0 2px 4px rgb(134, 134, 134);
+}
+
+.first {
+    height: 100%;
+    width: 600px;
+    margin: 8px;
+    max-width: 800px;
+    min-width: 300px;
+    background-color: #fffcfc;
+    box-shadow: 0 2px 4px rgb(134, 134, 134);
+}
+
+
+.row {
+    margin-top: 60px;
+
+}
+
+.form-select {
+    margin-left: 87%;
+    width: 15%;
+    background-color: ghostwhite;
+    font-size: x-small;
+    text-align: left;
+    margin-top: 2px;
+
+}
+
+#column{
+    height: 300px;
+}
+#line{
+    height: 300px;
+}
+#bar{
+    height: 300px;
+}
+#pie{
+    height: 300px;
+}

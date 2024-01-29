@@ -1,0 +1,144 @@
+<app-header></app-header>
+
+<body>
+    <div class="container-fulid">
+        <!-- <input class="search-bar" [(ngModel)]="searchText" type="search" placeholder="search here"> -->
+        <button class="icon btn btn-success" (click)="openAdd()">
+        <a>Add Project
+            <i class="fas fa-plus"></i>
+        </a>
+    </button>
+        <table datatable [dtOptions]="dtOptions" *ngIf="forms.length > 0; else noData"
+            class="table table-dark table-striped table-bordered border-warning table-sm row-border">
+            <thead>
+                <tr>
+                    <th style="display: none;"></th>
+                    <th>
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="parentSelector" [value]="-1"
+                            (change)="onChangeData($event)">
+                    </th>
+                    <th>ID</th>
+                    <th>Project Name</th>
+                    <th class="text-center">Organization</th>
+                    <th class="text-center">Start Date</th>
+                    <th class="text-center">Status</th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of forms; let i = index">
+                    <td style="display: none;"></td>
+                    <td scope="check">
+                        <input class="form-check-input" type="checkbox" [value]="user.id" [checked]="user.select"
+                            (change)="onChangeData($event)">
+                    </td>
+                    <td>{{i+1}}</td>
+                    <td>{{user.projectName}}</td>
+                    <td class="text-center">{{user.organization}}</td>
+                    <td class="text-center">{{user.startdate}}</td>
+                    <td class="text-center">{{user.status}}</td>
+                    <td class="text-center">
+                        <a class="edit" (click)="editData(user,i)">
+                            <i class="fa fa-pen-to-square"></i></a>
+                        <a class="delete" (click)="forDelete(user)">
+                            <i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <ng-template #noData>
+            <p class="text-center">No Project available</p>
+        </ng-template>
+    </div>
+
+    <!-- Add Modal  -->
+    <div class="modal" id="addModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h2 class="modal-title">ADD-<b style="color: #ffba0e">DATA</b></h2>
+                    <!-- <button type="button" class="btn-close" (click)="closeModal()"></button> -->
+                </div>
+                <form class="forms" [formGroup]="addForm">
+                    <!-- <div class="form-group col-md-4 mb-3 mt-2 p-2">
+                        
+                        <input type="text" class="form-control" formControlName="id" placeholder="Id">
+                    </div> -->
+
+                    <div class="form-group mb-3 p-2">
+                        <input type="text" class="form-control" formControlName="projectName" placeholder="projectName">
+                    </div>
+
+                    <div class="form-group mb-3 p-2">
+                        <input type="text" class="form-control" formControlName="organization"
+                            placeholder="Organization">
+                    </div>
+
+                    <div class="form-group mb-3 p-2">
+                        <input type="text" class="form-control" formControlName="startdate" placeholder="startdate">
+                    </div>
+
+                    <div class="form-group mb-3 p-2">
+                        <input type="text" class="form-control" formControlName="status" placeholder="status">
+
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" (click)="addItem()">Add</button>
+                        <!-- <button type="submit" class="btn btn-success" (click)="addData()">Add</button> -->
+                        <button type="button" class="btn btn-warning" (click)="closeModal()">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit modal  -->
+    <div class="modal" id="editModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h2 class="modal-title">EDIT-<b style="color: #ffba0e">DATA</b></h2>
+                    <!-- <button type="button" class="btn-close" (click)="closeModal()"></button> -->
+                </div>
+                <form class="forms" [formGroup]="addForm">
+                    <!-- <div class="form-group col-md-4 mt-2 p-2">
+                        <label class="form-group">Id</label>
+                        <input type="text" class="form-control" formControlName="id" placeholder="Id">
+                    </div> -->
+
+                    <div class="form-group p-2">
+                        <label class="form-group">Project Name</label>
+                        <input type="text" class="form-control" formControlName="projectName" placeholder="projectName">
+                    </div>
+
+                    <div class="form-group p-2">
+                        <label class="form-group">Organization</label>
+                        <input type="text" class="form-control" formControlName="organization"
+                            placeholder="Organization">
+                    </div>
+
+                    <div class="form-group p-2">
+                        <label class="form-group">Start Date</label>
+                        <input type="text" class="form-control" formControlName="startdate" placeholder="startdate">
+                    </div>
+
+                    <div class="form-group p-2">
+                        <label class="form-group">Status</label>
+                        <input type="text" class="form-control" formControlName="status" placeholder="status">
+
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" (click)="updateForm()">Update</button>
+                        <button type="button" class="btn btn-warning" (click)="editModalData()">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

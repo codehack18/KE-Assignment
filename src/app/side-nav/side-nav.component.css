@@ -1,0 +1,250 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body{
+    display: flex;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    height: 100vh;
+    padding: 0 1.2rem;
+    color: #fff;
+    overflow: hidden;
+    transition: all 0.5s linear;
+    background-color: lavender;
+}
+
+/* .sidebar:hover{
+    width: 200px;
+    transition: 0.5s;
+} */
+
+.logo{
+    height: 80px;
+    padding: 16px;
+}
+
+.main{
+    margin-top: 80px;
+    height: 88%;
+    width: 100%;
+    position: relative;
+    list-style: none;
+    padding: 0;
+}
+
+.main li{
+    padding: 1rem;
+    margin: 8px 0;
+    border-radius: 8px;
+    transition: all 0.5s ease-in-out;
+}
+
+.main li:hover
+.active{
+    background: gray;
+}
+
+.main a{
+    color: #000000;
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.main a span{
+    overflow: hidden;
+    font-weight: 600;
+}
+
+.main a i{
+    font-size: 1.2rem;
+}
+
+.logout{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+
+.logo {
+    color: rgb(0, 0, 0);
+    font-family: fantasy;
+    margin-top: 0;
+    position: relative;
+    /* display: flex; */
+  }
+  
+  .icon img {
+    height: 40px;
+    width: 42px;
+    float: right;
+    margin-left: 100%;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+  }
+  
+  .navbar {
+    background-color: lavender;
+    position: fixed !important;
+    height: 60px;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    /* left: 240px; */
+    /* border-radius: 0px 50px 50px 0px; */
+    /* margin: 5px; */
+    box-shadow: 0 2px 4px rgb(172, 172, 172);
+  }
+  
+  /* .navbar:hover{
+    width: 95%;
+    transition: 0.5s;
+} */
+
+  .urlshow h3 {
+  
+    font-family: fantasy;
+    /* color: darkmagenta; */
+    float: right;
+    position: absolute;
+    right: 45%;
+    top: 10px;
+  }
+  
+  .dash{
+    color: rgb(55, 133, 136);
+  }
+
+  .pro{
+    color: blueviolet;
+  }
+
+  .container {
+    margin-left: 15%;
+    margin-top: 20px;
+  }
+  
+  .tab{
+    color: blue;
+  }
+
+.use{
+  color: dodgerblue;
+}
+
+
+  .logo b {
+    list-style: none;
+    font-size: 1.75rem;
+    font-weight: 500;
+    position: relative;
+    top: 0;
+    animation: slide 14s steps(2) infinite;
+  }
+  
+  @keyframes slide {
+    100% {
+      top: -360px;
+    }
+  }
+  
+  .logo b::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: lavender;
+    border-left: 2px solid darkmagenta;
+    animation: typing 4s steps(14) infinite;
+  }
+  
+  @keyframes typing {
+  
+    40%,
+    60% {
+      left: calc(100% + 10px);
+    }
+  
+    100% {
+      left: 0;
+    }
+  }
+  
+ 
+  /* Import Google font - Poppins */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+label{
+  position: relative;
+  width: 70px;
+  height: 30px;
+  display: block;
+  background: #d9d9d9;
+  border-radius: 100px;
+  cursor: pointer;
+  box-shadow: inset 0px 5px 15px rgba(0,0,0,0.3), inset 0px -5px 15px rgba(255,255,255,0.3);
+}
+label:after{
+  content: '';
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  background: #f2f2f2;
+  border-radius: 100px;
+  top: 5px;
+  left: 10px;
+  transition: 0.5s;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+input:checked ~ label:after{
+  left: 60px;
+  transform: translateX(-100%);
+  background: linear-gradient(180deg,#777,#3a3a3a);
+}
+input:checked ~ label{
+  background: #242424;
+}
+.background{
+  position: absolute;
+  width: 100%;
+  background: #fff;
+  z-index: -1;
+  transition: 0.5s;
+}
+input:checked + label + .background{
+  background: #242424;
+}
+input{
+  display: none;
+} */

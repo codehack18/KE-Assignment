@@ -1,0 +1,59 @@
+<!-- <app-header class="header"></app-header> -->
+<app-side-nav class="sidenav"></app-side-nav>
+<div class="container">
+  <div class="row">
+    <div class="card first">
+      <div class="card-header">
+        <select class="form-select" aria-label="Default select example" (change)=" changeType($event)">
+          <option selected>Type</option>
+          <option value="bar">Bar</option>
+          <option value="pie">pie</option>
+          <option value="line">Line</option>
+          <option value="column">Column</option>
+        </select>
+      </div>
+      <div class="linechart mb-2 col-log-6" #charts id="line"></div>
+    </div>
+
+    <div class="card second">
+      <div class="card-header">
+        <select class="form-select" aria-label="Default select example" (change)=" chartType($event)">
+          <option selected>Type</option>
+          <option value="bar">Bar</option>
+          <option value="pie">pie</option>
+          <option value="line">Line</option>
+          <option value="column">Column</option>
+        </select>
+      </div>
+      <div class="columnchart mb-2 col-log-6" #charts id="column"></div>
+    </div>
+
+
+    <div class="card second">
+      <div class="card-header">
+        <select class="form-select" aria-label="Default select example" (change)=" changeChartType($event)">
+          <option selected>Type</option>
+          <option value="bar">Bar</option>
+          <option value="pie">pie</option>
+          <option value="line">Line</option>
+          <option value="column">Column</option>
+        </select>
+      </div>
+      <div class="barchart mb-2 col-log-6" #charts id="bar"></div>
+    </div>
+
+    <div class="card first">
+      <div class="card-header">
+        <select class="form-select" aria-label="Default select example" (change)=" typeChange($event)">
+          <option selected>Type</option>
+          <option value="bar">Bar</option>
+          <option value="pie">pie</option>
+          <option value="line">Line</option>
+          <option value="column">Column</option>
+        </select>
+      </div>
+      <div class="piechart mb-2 col-log-6" #charts id="pie"></div>
+    </div>
+
+  </div>
+</div>

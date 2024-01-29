@@ -1,0 +1,153 @@
+<!-- <app-header></app-header> -->
+<app-side-nav></app-side-nav>
+<div class="add">
+    <a class="icon btn btn-warning" (click)="openModal()">
+        <i class="fa fa-user-plus"></i>
+    </a>
+</div>
+
+<!-- Add user modal -->
+
+<div class="modal" id="myModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2 class="modal-title">ADD-<b style="color: #ffba0e">USER</b></h2>
+                <!-- <button type="button" class="btn-close" (click)="closeModal()"></button> -->
+            </div>
+            <form class="forms" [formGroup]="userForm">
+                <div class="form-group col-md-4 mb-3 mt-2 p-2">
+                    <input type="text" class="form-control" formControlName="id" placeholder="Id">
+                </div>
+
+                <div class="form-group mb-3 p-2">
+                    <input type="file" class="form-control btn btn-secondary" (change)="fileuploads($event)" multiple
+                        style="height: 100%;" accept="image/*" formControlName="profile">
+                </div>
+
+                <div class="form-group mb-3 p-2">
+                    <input type="text" class="form-control" formControlName="name" placeholder="Name">
+                </div>
+
+                <div class="form-group mb-3 p-2">
+                    <input type="text" class="form-control" formControlName="department" placeholder="Department">
+                </div>
+
+                <div class="form-group mb-3 p-2">
+                    <input type="text" class="form-control" formControlName="access" placeholder="Access">
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" data-bs-dismiss="modal"
+                        (click)="addUser()">Add</button>
+                    <button type="button" class="btn btn-warning" (click)="closeModal()">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container-fulid">
+
+    <table datatable [dtOptions]="dtOptions" *ngIf="users.length > 0; else noDataMessage "
+        class="table table-success table-striped table-bordered border-secondary table-sm row-border">
+        <thead>
+            <tr>
+                <th style="display: none;"></th>
+                <th scope="col">
+                    <input class="form-check-input" type="checkbox" [(ngModel)]="parentSelector" [value]="-1"
+                        (change)="onChangeUser($event)">
+                </th>
+                <th>ID</th>
+                <th class="text-center">Profile Picture</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Department</th>
+                <th class="text-center">Access</th>
+                <th class="text-center">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of users; let i = index">
+                <td style="display: none;"></td>
+                <td scope="row">
+                    <input class="form-check-input" type="checkbox" [value]="item.id" [checked]="item.select"
+                        (change)="onChangeUser($event)">
+                </td>
+                <th>{{item.id}}</th>
+                <td class="text-center">
+                    <img src='{{item.profile}}' style="height: 30px; width: 30px; border-radius: 50%;">
+                </td>
+                <td class="text-center">{{item.name}}</td>
+                <td class="text-center">{{item.department}}</td>
+                <td class="text-center">{{item.access}}</td>
+                <td class="text-center">
+                    <a class="edit text-black" (click)="toEdit(item,i)">
+                        <i class="fa fa-pen-to-square"></i>
+                    </a>
+                    <a class="delete" (click)="toDelete(item)">
+                        <i class="fa fa-trash-can"></i>
+                    </a>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+    <ng-template #noDataMessage>
+        <p class="text-center">No User available</p>
+      </ng-template>
+
+    <!-- edit modal -->
+
+    <div class="modal" id="editModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h2 class="modal-title">EDIT-<b style="color: #ffba0e">USER</b></h2>
+                </div>
+
+                <form class="forms" [formGroup]="userForm">
+                    <div class="form-group col-md-4 mt-2 p-2">
+                        <label class="form-group">Id</label>
+                        <input type="text" class="form-control" formControlName="id" placeholder="Id">
+                    </div>
+
+                    <div class="form-group p-2">
+                        <label class="form-group">Profile</label>
+                        <input type="file" (change)="fileuploads($event)" multiple
+                            class="form-control btn btn-secondary" style="height: 100%;" accept="image/*"
+                            formControlName="profile">
+                        <!-- <input type="file" class="form-control btn btn-secondary" style="height: 100%;"
+                            formControlName="profile"> -->
+
+                    </div>
+
+                    <div class="form-group p-2">
+                        <label class="form-group">Name</label>
+                        <input type="text" class="form-control" formControlName="name" placeholder="Name">
+                    </div>
+
+                    <div class="form-group p-2">
+                        <label class="form-group">Department</label>
+                        <input type="text" class="form-control" formControlName="department" placeholder="Department">
+                    </div>
+
+                    <div class="form-group p-2">
+                        <label class="form-group">Access</label>
+                        <input type="text" class="form-control" formControlName="access" placeholder="Access">
+
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" (click)="updateModal()">Update</button>
+                        <button type="button" class="btn btn-warning" (click)="closeEdit()">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

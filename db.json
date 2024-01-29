@@ -1,0 +1,54 @@
+{
+  "tableList": [
+    {
+      "id": "1",
+      "name": "Meera ",
+      "username": "meera@12",
+      "email": "meera123@test.com",
+      "phone": 9087563563,
+      "website": "MyWork",
+      "address": "Delhi",
+      "company": "AR-Solution"
+    },
+    {
+      "id": "2",
+      "name": "Shagun",
+      "username": "Shagun23",
+      "email": "shagun@12.test.com",
+      "phone": 9008543427,
+      "website": "My Home",
+      "address": "Delhi",
+      "company": "My Own Home"
+    },
+    {
+      "id": "3",
+      "name": "Isha",
+      "username": "isha@12",
+      "email": "isha@2.test.com",
+      "phone": 9034251781,
+      "website": "I amOwsome.com",
+      "address": "Delhi",
+      "company": "I amOwsome"
+    },
+    {
+      "id": "4",
+      "name": "Aria",
+      "username": "Aria@148",
+      "email": "aria@test.com",
+      "phone": 9960574532,
+      "website": "ariaart.com",
+      "address": "New delhi",
+      "company": "AriaArt.PLT"
+    },
+    {
+      "id": "5",
+      "name": "Shagun",
+      "username": "Shagun23",
+      "email": "shagun@12.test.com",
+      "phone": 9008543427,
+      "website": "My Home",
+      "address": "Delhi",
+      "company": "My Own Home"
+    }
+  ]
+}

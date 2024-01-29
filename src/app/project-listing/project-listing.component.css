@@ -1,0 +1,42 @@
+.container-fulid {
+    margin: 10px;
+}
+
+.table {
+    padding: 5px;
+}
+
+.delete {
+    color: red;
+    margin-left: 20px;
+}
+
+.icon {
+    margin-top: 60px;
+    margin-left: 45%;
+    height: 100%;
+}
+
+.modal-content {
+    background-color: #979595;
+    align-items: center;
+    justify-items: center;
+}
+
+.modal {
+    background: rgba(0, 0, 0, 0.651);
+}
+
+.modal-title {
+    font-family: system-ui;
+}
+
+table.datatable thead .sorting:first-child {
+    background-image: none !important;
+}
+
+p {
+    margin: 15%;
+    font-size: xx-large;
+    color: #fc0000;
+}
